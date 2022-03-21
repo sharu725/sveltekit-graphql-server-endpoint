@@ -27,8 +27,25 @@
   export let data;
 </script>
 
-{JSON.stringify(data)}
-<h1>Welcome to SvelteKit</h1>
-<p>
-  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<h1>Books</h1>
+
+{#each data.books as { title, author }}
+  <div>
+    <h4>{title}</h4>
+    <cite>-- {author}</cite>
+  </div>
+{/each}
+
+<style>
+  div {
+    display: grid;
+    border: 1px solid #ddd;
+    max-width: 400px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: lightgoldenrodyellow;
+  }
+  h4 {
+    margin: 0;
+  }
+</style>
